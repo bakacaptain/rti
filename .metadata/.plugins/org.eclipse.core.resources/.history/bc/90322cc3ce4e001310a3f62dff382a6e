@@ -1,0 +1,14 @@
+package Price;
+import java.math.BigDecimal;
+
+public class PriceUpdatedMessage {
+
+	private BigDecimal price;
+	private long quote;
+	
+	public PriceUpdatedMessage(BigDecimal price, logn quote)
+	{ 
+		this.price = price;
+		this.quote = quote;
+	}
+}

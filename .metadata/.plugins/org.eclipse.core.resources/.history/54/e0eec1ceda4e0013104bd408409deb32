@@ -1,0 +1,53 @@
+package Subscriber;
+
+import com.rti.dds.domain.DomainParticipant;
+import com.rti.dds.domain.DomainParticipantFactory;
+import com.rti.dds.infrastructure.StatusKind;
+import com.rti.dds.subscription.DataReaderAdapter;
+import com.rti.dds.topic.Topic;
+import com.rti.dds.type.builtin.StringDataReader;
+import com.rti.dds.type.builtin.StringTypeSupport;
+import com.rti.dds.subscription.Subscriber;
+
+public class RawPriceSubscriber extends DataReaderAdapter {
+	
+	// for graceful shutdown sequence
+	private boolean shutdown_flag = false;
+	
+	public static void main(String[] args){
+		
+		DomainParticipant participant = DomainParticipantFactory
+				.get_instance()
+				.create_participant(
+						0, // Domain id
+						DomainParticipantFactory.PARTICIPANT_QOS_DEFAULT,
+						null, // listener
+						StatusKind.STATUS_MASK_NONE);
+		
+		if(participant == null)
+		{
+			System.err.println("Unable to create the domain participant");
+			return;
+		}
+		
+		Topic topic = participant.create_topic(
+				"RawPriceUpdated",
+				StringTypeSupport.get_type_name(),
+				DomainParticipant.TOPIC_QOS_DEFAULT,
+				null, // listener
+				StatusKind.STATUS_MASK_NONE);
+		
+		if(topic == null)
+		{
+			System.err.println("Unable to create topic");
+			return;
+		}
+		
+		StringDataReader reader = (StringDataReader) participant.create_datareader(
+				topic, 
+				Subscriber.DATAREADER_QOS_DEFAULT, 
+				new RawPriceSubscriber(), // listener 
+				StatusKind.);
+	}
+
+}

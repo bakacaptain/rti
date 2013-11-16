@@ -1,0 +1,10 @@
+package Subscriber;
+
+import com.rti.dds.subscription.DataReaderAdapter;
+
+public class RawPriceSubscriber extends DataReaderAdapter {
+	
+	// for gracefull shutdown sequence
+	
+
+}

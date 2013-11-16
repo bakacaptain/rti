@@ -2,5 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/usr/local/RTI/ndds.5.0.0/class/nddsjava.jar"/>
+	<classpathentry kind="var" path="LD_LIBRARY_PATH"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

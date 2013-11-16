@@ -1,0 +1,24 @@
+
+public class Program {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public void service()
+	{
+		participant = DomainParticipantFactory
+				.get_instance()
+				.create_participant(
+						0, // Domain id
+						DomainParticipantFactory.PARTICIPANT_QOS_DEFAULT,
+						null, // listener
+						StatusKind.STATUS_MASK_NONE);
+		
+	}
+
+}

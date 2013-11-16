@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.rti.dds.domain.DomainParticipant"/>
+<fullyQualifiedTypeName name="com.rti.dds.infrastructure.StatusKind"/>
+<fullyQualifiedTypeName name="com.rti.dds.topic.Topic"/>
+<fullyQualifiedTypeName name="com.rti.dds.type.builtin.StringTypeSupport"/>
+<fullyQualifiedTypeName name="com.rti.dds.type.builtin.StringDataWriter"/>
+<fullyQualifiedTypeName name="com.rti.dds.publication.Publisher"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="com.rti.dds.infrastructure.InstanceHandle_t"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="com.rti.dds.infrastructure.RETCODE_ERROR"/>
+<fullyQualifiedTypeName name="com.rti.dds.type.builtin.StringDataReader"/>
+<fullyQualifiedTypeName name="com.rti.dds.subscription.Subscriber"/>
+<fullyQualifiedTypeName name="Subscriber.RawPriceSubscriber"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="java.nio.channels.ShutdownChannelGroupException"/>
+<fullyQualifiedTypeName name="com.rti.dds.subscription.DataReaderAdapter"/>
+<fullyQualifiedTypeName name="com.rti.dds.domain.DomainParticipantFactory"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,9 @@
+package Price;
+
+public class PriceUpdatedMessage {
+
+	public PriceUpdatedMessage()
+	{
+		
+	}
+}

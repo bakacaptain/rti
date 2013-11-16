@@ -1,0 +1,11 @@
+package Price;
+import java.math.BigDecimal;
+
+public class PriceUpdatedMessage {
+
+	private BigDecimal price;
+	
+	public PriceUpdatedMessage()
+	{ 
+	}
+}
