@@ -1,0 +1,49 @@
+package core;
+
+import java.util.concurrent.BlockingQueue;
+
+import com.rti.dds.infrastructure.RETCODE_ERROR;
+import com.rti.dds.infrastructure.RETCODE_NO_DATA;
+import com.rti.dds.subscription.DataReader;
+import com.rti.dds.subscription.DataReaderAdapter;
+import com.rti.dds.subscription.SampleInfo;
+import com.rti.dds.type.builtin.StringDataReader;
+
+public class MessageHandler extends DataReaderAdapter {
+
+	private BlockingQueue<String> queue;
+	
+	public MessageHandler(BlockingQueue<String> queue){
+		this.queue = queue;
+	}
+	
+	public void on_data_available(DataReader reader){
+		
+		StringDataReader stringReader = (StringDataReader) reader;
+		SampleInfo info = new SampleInfo();
+		
+		while(true){
+			try{
+				String sample = stringReader.take_next_sample(info);
+				if(info.valid_data){
+					this.queue.put(sample);
+					System.out.println(sample);
+				}
+				
+//				if(sample.equals("")){
+//					shutdown_flag = true;
+//				}
+			}
+			catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			catch(RETCODE_NO_DATA noData){
+				// no more data to read
+				break;
+			}
+			catch(RETCODE_ERROR e){
+				e.printStackTrace();
+			} 
+		}
+	}
+}

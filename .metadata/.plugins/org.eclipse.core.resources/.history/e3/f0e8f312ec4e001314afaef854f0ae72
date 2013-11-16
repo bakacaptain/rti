@@ -1,0 +1,8 @@
+package core;
+
+public class DataSubscriber extends Thread {
+
+	public void run(){
+		
+	}
+}

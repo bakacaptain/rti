@@ -1,0 +1,11 @@
+package core;
+
+import java.io.ByteArrayOutputStream;
+
+public class ByteSerialzier {
+
+	public static byte[] serialize(Object obj){
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		return 
+	}
+}

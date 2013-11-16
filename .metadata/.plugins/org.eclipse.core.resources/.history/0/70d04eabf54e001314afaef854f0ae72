@@ -1,0 +1,23 @@
+import java.util.concurrent.LinkedBlockingQueue;
+
+import subscribers.raw.RawPriceSubscriber;
+
+
+public class PriceForecaster {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<String>();
+		
+		RawPriceSubscriber subscriber = new RawPriceSubscriber(queue);
+		
+		Thread SubscriberThread = new Thread(subscriber);
+		
+		subscriber.start();
+
+	}
+
+}

@@ -1,0 +1,13 @@
+package core;
+
+/// Call start on an instance of DataSubscriber to call the run() function.
+public class DataSubscriber extends Thread {
+
+	public DataSubscriber(){
+		
+	}
+	
+	public void run(){
+		
+	}
+}

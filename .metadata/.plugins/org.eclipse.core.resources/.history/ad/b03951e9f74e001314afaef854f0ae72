@@ -1,0 +1,5 @@
+package publishers.raw;
+
+public class RawPricePublisher {
+
+}

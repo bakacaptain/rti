@@ -1,0 +1,55 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.concurrent.LinkedBlockingQueue;
+
+import publishers.raw.RawPricePublisher;
+
+import com.rti.dds.domain.DomainParticipant;
+import com.rti.dds.domain.DomainParticipantFactory;
+import com.rti.dds.infrastructure.InstanceHandle_t;
+import com.rti.dds.infrastructure.RETCODE_ERROR;
+import com.rti.dds.infrastructure.StatusKind;
+import com.rti.dds.publication.Publisher;
+import com.rti.dds.topic.Topic;
+import com.rti.dds.type.builtin.StringDataWriter;
+import com.rti.dds.type.builtin.StringTypeSupport;
+
+public class PriceProvider {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		System.out.println("Starting publisher service...");
+		
+		// Setup data writer
+		
+		LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<String>();
+		RawPricePublisher publisher = new RawPricePublisher(queue);
+		Thread publishThread = new Thread(publisher);
+		
+		publishThread.start();
+		
+		// Setup UI input
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		try{
+			while(true){
+				System.out.println("Please type a message> ");
+				String input = reader.readLine();
+				queue.put(input);
+				if(input.equals(""))
+					break;
+			}
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		
+		publishThread.stop();
+		
+		System.out.println("Stopping publisher service...");
+	}
+	
+}

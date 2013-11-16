@@ -1,0 +1,24 @@
+package publishers.raw;
+
+public class RawPricePublisher implements Runnable {
+
+	
+	
+	public RawPricePublisher(){
+		this.init();
+	}
+	
+	private void init(){
+		
+	}
+	
+	@Override
+	public void run() {
+		
+	}
+	
+	public void stop(){
+		
+	}
+
+}

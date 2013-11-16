@@ -1,0 +1,96 @@
+package publishers.raw;
+
+import java.util.concurrent.BlockingQueue;
+
+import Price.PriceUpdatedMessage;
+
+import com.rti.dds.domain.DomainParticipant;
+import com.rti.dds.domain.DomainParticipantFactory;
+import com.rti.dds.infrastructure.InstanceHandle_t;
+import com.rti.dds.infrastructure.RETCODE_ERROR;
+import com.rti.dds.infrastructure.StatusKind;
+import com.rti.dds.publication.Publisher;
+import com.rti.dds.topic.Topic;
+import com.rti.dds.type.builtin.KeyedBytesDataWriter;
+import com.rti.dds.type.builtin.KeyedBytesTypeSupport;
+import com.rti.dds.type.builtin.StringDataWriter;
+import com.rti.dds.type.builtin.StringTypeSupport;
+
+public class RawPricePublisher implements Runnable {
+
+	private boolean shutdown_flag = false;
+	private BlockingQueue<PriceUpdatedMessage> queue;
+	private DomainParticipant participant;
+	private KeyedBytesDataWriter dataWriter;
+	
+	public RawPricePublisher(BlockingQueue<PriceUpdatedMessage> queue){
+		this.queue = queue;
+		this.init();
+	}
+	
+	private void init(){
+		participant = DomainParticipantFactory
+				.get_instance()
+				.create_participant(
+						0, // Domain id
+						DomainParticipantFactory.PARTICIPANT_QOS_DEFAULT,
+						null, // listener
+						StatusKind.STATUS_MASK_NONE);
+		
+		if(participant == null)
+		{
+			System.err.println("Unable to create the domain participant");
+			return;
+		}
+		
+		Topic topic = participant.create_topic(
+				"RawPriceUpdated",
+				KeyedBytesTypeSupport.get_type_name(),
+				DomainParticipant.TOPIC_QOS_DEFAULT,
+				null, // listener
+				StatusKind.STATUS_MASK_NONE);
+		
+		if(topic == null)
+		{
+			System.err.println("Unable to create topic");
+			return;
+		}
+		
+		dataWriter = (StringDataWriter) participant.create_datawriter(
+					topic,
+					Publisher.DATAWRITER_QOS_DEFAULT,
+					null, // listener
+					StatusKind.STATUS_MASK_NONE);
+		
+		if(dataWriter == null)
+		{
+			System.err.println("Cannot create data writer\n");
+			return;
+		}
+	}
+	
+	@Override
+	public void run() {
+		try
+		{
+			while(!shutdown_flag){
+				String input = queue.take();
+				dataWriter.write(input, InstanceHandle_t.HANDLE_NIL);
+				
+				if(input.equals("")) break;
+			}
+		} catch(RETCODE_ERROR e){
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void stop(){
+		shutdown_flag = true;
+		
+		participant.delete_contained_entities();
+		DomainParticipantFactory.get_instance().delete_participant(participant);
+	}
+
+}

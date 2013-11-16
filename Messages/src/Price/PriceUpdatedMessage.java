@@ -1,7 +1,10 @@
 package Price;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class PriceUpdatedMessage {
+public class PriceUpdatedMessage implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private long orderId;
 	

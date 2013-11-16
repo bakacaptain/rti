@@ -1,0 +1,42 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import com.rti.dds.domain.DomainParticipant;
+import com.rti.dds.domain.DomainParticipantFactory;
+import com.rti.dds.infrastructure.InstanceHandle_t;
+import com.rti.dds.infrastructure.RETCODE_ERROR;
+import com.rti.dds.infrastructure.StatusKind;
+import com.rti.dds.publication.Publisher;
+import com.rti.dds.topic.Topic;
+import com.rti.dds.type.builtin.StringDataWriter;
+import com.rti.dds.type.builtin.StringTypeSupport;
+
+public class PriceProvider {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		boolean shutdown_flag = false;
+		System.out.println("Starting publisher service...");
+		
+		
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		try{
+			while(!shutdown_flag){
+				System.out.println("Please type a message> ");
+				String input = reader.readLine();
+				queue.put(input);
+			}
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		
+		
+		System.out.println("Stopping publisher service...");
+	}
+	
+}

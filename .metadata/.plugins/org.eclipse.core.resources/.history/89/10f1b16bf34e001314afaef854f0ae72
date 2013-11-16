@@ -1,0 +1,17 @@
+import subscribers.raw.RawPriceSubscriber;
+
+
+public class PriceForecaster {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		LinkedBlockingQueue queue = new LinkedBlockingQueue();
+		
+		RawPriceSubscriber subscriber = new RawPriceSubscriber(queue);
+
+	}
+
+}

@@ -1,0 +1,18 @@
+
+public class PriceForecaster {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		Topic topic = participant.create_topic(
+		"RawPriceUpdated",
+		StringTypeSupport.get_type_name(),
+		DomainParticipant.TOPIC_QOS_DEFAULT,
+		null, // listener
+		StatusKind.STATUS_MASK_NONE);
+
+	}
+
+}

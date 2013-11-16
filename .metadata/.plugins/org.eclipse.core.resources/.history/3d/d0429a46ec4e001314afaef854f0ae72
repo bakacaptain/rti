@@ -1,0 +1,15 @@
+package core;
+
+import java.util.concurrent.BlockingQueue;
+
+/// Call start on an instance of DataSubscriber to call the run() function.
+public class DataSubscriber<T> extends Thread {
+
+	public DataSubscriber(BlockingQueue<T> queue){
+		
+	}
+	
+	public void run(){
+		
+	}
+}
