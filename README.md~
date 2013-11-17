@@ -32,4 +32,4 @@ The subscription and publication takes place in their own threads - and passes t
 
 PriceViewer
 --------------------------
-Subscribes to both raw and future prices and writes their content in the console (yeah, not very effective). Two separate subscribes exists in their own thread - additional two threads are used to write the contents to the console (yes, they could just write to the console from the same thread they where handled from...). 
+Subscribes to both raw and future prices and writes their content in the console (yeah, not very effective). Two separate subscribes exists in their own thread - additional two threads are used to write the contents to the console. 

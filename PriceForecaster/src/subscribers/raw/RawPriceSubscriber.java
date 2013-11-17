@@ -5,8 +5,10 @@ import java.util.concurrent.BlockingQueue;
 import Price.PriceUpdatedMessage;
 import com.rti.dds.domain.DomainParticipant;
 import com.rti.dds.domain.DomainParticipantFactory;
+import com.rti.dds.infrastructure.ReliabilityQosPolicyKind;
 import com.rti.dds.infrastructure.StatusKind;
 import com.rti.dds.topic.Topic;
+import com.rti.dds.topic.TopicQos;
 import com.rti.dds.type.builtin.KeyedBytesDataReader;
 import com.rti.dds.type.builtin.KeyedBytesTypeSupport;
 import com.rti.dds.subscription.Subscriber;
@@ -40,10 +42,15 @@ public class RawPriceSubscriber implements Runnable {
 			return;
 		}
 		
+		TopicQos qos = new TopicQos();
+		participant.get_default_topic_qos(qos);
+		qos.reliability.kind = ReliabilityQosPolicyKind.BEST_EFFORT_RELIABILITY_QOS;
+		participant.set_default_topic_qos(qos);
+		
 		Topic topic = participant.create_topic(
 				"RawPriceUpdated",
 				KeyedBytesTypeSupport.get_type_name(),
-				DomainParticipant.TOPIC_QOS_DEFAULT,
+				qos,
 				null, // listener
 				StatusKind.STATUS_MASK_NONE);
 			

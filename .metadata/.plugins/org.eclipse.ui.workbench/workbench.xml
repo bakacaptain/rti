@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="12" version="2.0">
 <workbenchAdvisor/>
-<window height="730" width="1024" x="65" y="24">
+<window height="855" width="1020" x="65" y="24">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -10,13 +10,14 @@
 <coolItem id="group.file" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="132" y="30"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="120" y="30"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="76" y="30"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="124" y="30"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="48" y="30"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="48" y="30"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="68" y="30"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="184" y="30"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -25,16 +26,10 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RawPriceSubscriber.java" partName="RawPriceSubscriber.java" path="/home/chicken/workspace/rti/PriceForecaster/src/Subscriber/RawPriceSubscriber.java" title="RawPriceSubscriber.java" tooltip="PriceForecaster/src/Subscriber/RawPriceSubscriber.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PriceForecaster/src/Subscriber/RawPriceSubscriber.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="641" selectionTopPixel="0"/>
-</editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
@@ -59,7 +54,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.ui.console.ConsoleView" activePerspective="org.eclipse.ui.resourcePerspective">
+<perspectives activePart="org.eclipse.ui.navigator.ProjectExplorer" activePerspective="org.eclipse.ui.resourcePerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -89,11 +84,16 @@
 <perspective_action id="org.eclipse.team.ui.TeamSynchronizingPerspective"/>
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
-<view id="org.eclipse.ui.navigator.ProjectExplorer"/>
-<view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.ui.views.TaskList"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
-<fastViewBars/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<fastViewBars>
+<fastViewBar fastViewLocation="1024" id="bottomLeft" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">
+<fastViews>
+<view id="org.eclipse.ui.views.ContentOutline" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+</fastViewBars>
 <layout>
 <mainWindow>
 <info folder="true" part="topLeft">
@@ -120,6 +120,7 @@
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.team.ui.GenericHistoryView" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
@@ -127,12 +128,10 @@
 </folder>
 </info>
 <info folder="true" part="bottomLeft" ratio="0.4991708" ratioLeft="301" ratioRight="302" relationship="4" relative="topLeft">
-<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<folder appearance="2" expanded="0">
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </mainWindow>
@@ -140,168 +139,18 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory>
-<editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/PriceProvider/src/Program.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/PriceForecaster/src/Program.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/PriceForecaster/src/Subscriber/RawPriceSubscriber.java"/>
-</editors>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="1">
-<position/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position/>
-</item>
-<item historyLabel="Program.java" index="1">
-<position/>
-</item>
-<item historyLabel="Program.java" index="1">
-<position/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position info="not_deleted" x="1917" y="0"/>
-</item>
-<item historyLabel="Program.java" index="1">
-<position/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position info="not_deleted" x="1917" y="0"/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position info="not_deleted" x="826" y="648"/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position info="not_deleted" x="1917" y="0"/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position info="not_deleted" x="391" y="0"/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position info="not_deleted" x="1474" y="0"/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position info="not_deleted" x="1917" y="0"/>
-</item>
-<item historyLabel="Program.java" index="0">
-<position info="not_deleted" x="1474" y="0"/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position info="not_deleted" x="1917" y="0"/>
-</item>
-<item historyLabel="Program.java" index="1">
-<position info="not_deleted" x="133" y="2"/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position info="not_deleted" x="1546" y="0"/>
-</item>
-<item historyLabel="Program.java" index="1">
-<position info="not_deleted" x="133" y="2"/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position info="not_deleted" x="1546" y="0"/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position info="not_deleted" x="1599" y="0"/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position info="not_deleted" x="1917" y="0"/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position info="not_deleted" x="1713" y="0"/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position info="not_deleted" x="1688" y="0"/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position info="not_deleted" x="1683" y="0"/>
-</item>
-<item historyLabel="RawPriceSubscriber.java" index="2">
-<position info="not_deleted" x="1883" y="0"/>
-</item>
-<item active="true" historyLabel="RawPriceSubscriber.java" index="2">
-<position info="not_deleted" x="1917" y="0"/>
-</item>
-</navigationHistory>
+<navigationHistory/>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="topLeft"/>
+</trimArea>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
+</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>
@@ -309,10 +158,47 @@
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="bottomLeft"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RawPriceSubscriber.java" tooltip="PriceViewer/src/subscribers/RawPriceSubscriber.java">
+<persistable path="/PriceViewer/src/subscribers/RawPriceSubscriber.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RawPricePublisher.java" tooltip="PriceProvider/src/publishers/raw/RawPricePublisher.java">
+<persistable path="/PriceProvider/src/publishers/raw/RawPricePublisher.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RawPriceSubscriber.java" tooltip="PriceForecaster/src/subscribers/raw/RawPriceSubscriber.java">
+<persistable path="/PriceForecaster/src/subscribers/raw/RawPriceSubscriber.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PriceUpdatedMessage.java" tooltip="Messages/src/Price/PriceUpdatedMessage.java">
+<persistable path="/Messages/src/Price/PriceUpdatedMessage.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FuturePriceUpdatedMessage.java" tooltip="Messages/src/Price/FuturePriceUpdatedMessage.java">
+<persistable path="/Messages/src/Price/FuturePriceUpdatedMessage.java"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Object.class" tooltip="java.lang.Object">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=PriceForecaster/\/usr\/local\/java\/jdk1.7.0_45\/jre\/lib\/rt.jar&lt;java.lang(Object.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PriceViewer.java" tooltip="PriceViewer/src/PriceViewer.java">
+<persistable path="/PriceViewer/src/PriceViewer.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ConsoleConsumer.java" tooltip="PriceViewer/src/consumers/ConsoleConsumer.java">
+<persistable path="/PriceViewer/src/consumers/ConsoleConsumer.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MessageHandler.java" tooltip="Messages/src/core/MessageHandler.java">
+<persistable path="/Messages/src/core/MessageHandler.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FuturePriceSubscriber.java" tooltip="PriceViewer/src/subscribers/FuturePriceSubscriber.java">
+<persistable path="/PriceViewer/src/subscribers/FuturePriceSubscriber.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PriceForecaster.java" tooltip="PriceForecaster/src/PriceForecaster.java">
+<persistable path="/PriceForecaster/src/PriceForecaster.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FuturePricePublisher.java" tooltip="PriceForecaster/src/publishers/future/FuturePricePublisher.java">
+<persistable path="/PriceForecaster/src/publishers/future/FuturePricePublisher.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Program.java" tooltip="PriceForecaster/src/Program.java">
 <persistable path="/PriceForecaster/src/Program.java"/>
 </file>

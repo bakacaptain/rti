@@ -18,4 +18,17 @@
 <fullyQualifiedTypeName name="java.nio.channels.ShutdownChannelGroupException"/>
 <fullyQualifiedTypeName name="com.rti.dds.subscription.DataReaderAdapter"/>
 <fullyQualifiedTypeName name="com.rti.dds.domain.DomainParticipantFactory"/>
+<fullyQualifiedTypeName name="publishers.future.FuturePricePublisher"/>
+<fullyQualifiedTypeName name="java.util.concurrent.LinkedBlockingQueue"/>
+<fullyQualifiedTypeName name="subscribers.FuturePriceSubscriber"/>
+<fullyQualifiedTypeName name="subscribers.RawPriceSubscriber"/>
+<fullyQualifiedTypeName name="java.util.concurrent.BlockingQueue"/>
+<fullyQualifiedTypeName name="Price.PriceUpdatedMessage"/>
+<fullyQualifiedTypeName name="consumers.ConsoleConsumer"/>
+<fullyQualifiedTypeName name="Price.FuturePriceUpdatedMessage"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="com.rti.dds.topic.TopicQos"/>
+<fullyQualifiedTypeName name="com.rti.dds.infrastructure.Duration_t"/>
+<fullyQualifiedTypeName name="com.rti.dds.infrastructure.ReliabilityQosPolicyKind"/>
 </qualifiedTypeNameHistroy>
