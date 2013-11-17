@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;Price.FuturePriceUpdated&apos; to &apos;FuturePriceUpdatedMessage&apos;&#x0A;- Original project: &apos;Messages&apos;&#x0A;- Original element: &apos;Price.FuturePriceUpdated&apos;&#x0A;- Renamed element: &apos;Price.FuturePriceUpdatedMessage&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;FuturePriceUpdated&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;Price{FuturePriceUpdated.java[FuturePriceUpdated" matchStrategy="1" name="FuturePriceUpdatedMessage" qualified="false" references="true" similarDeclarations="false" stamp="1384641775781" textual="false" version="1.0"/>
+</session>

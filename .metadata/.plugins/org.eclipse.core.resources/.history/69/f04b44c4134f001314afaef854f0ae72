@@ -1,0 +1,30 @@
+package publishers.future;
+
+import java.util.concurrent.BlockingQueue;
+import Price.PriceUpdatedMessage;
+
+public class FuturePricePublisher implements Runnable {
+
+	private boolean shutdown_flag = false;
+	private BlockingQueue<PriceUpdatedMessage> queue;
+	
+	public FuturePricePublisher(BlockingQueue<PriceUpdatedMessage> queue){
+		this.queue = queue;
+	}
+	
+	@Override
+	public void run() {
+		try{
+			while(!shutdown_flag){
+				PriceUpdatedMessage msg = queue.take();
+			}
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	public void stop(){
+		shutdown_flag = true;
+	}
+
+}

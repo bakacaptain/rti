@@ -1,12 +1,38 @@
+import java.util.concurrent.LinkedBlockingQueue;
+
+import consumers.ConsoleConsumer;
+
+import subscribers.FuturePriceSubscriber;
+import subscribers.RawPriceSubscriber;
+
+import Price.FuturePriceUpdatedMessage;
+import Price.PriceUpdatedMessage;
+
 
 public class PriceViewer {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		LinkedBlockingQueue<PriceUpdatedMessage> rawQueue = new LinkedBlockingQueue<PriceUpdatedMessage>();
+		LinkedBlockingQueue<FuturePriceUpdatedMessage> futureQueue = new LinkedBlockingQueue<FuturePriceUpdatedMessage>();
+		
+		ConsoleConsumer<PriceUpdatedMessage> rawConsumer = new ConsoleConsumer<PriceUpdatedMessage>(rawQueue);
+		Thread rawConsumerThread = new Thread(rawConsumer);
+		
+		ConsoleConsumer<FuturePriceUpdatedMessage> futureConsumer = new ConsoleConsumer<FuturePriceUpdatedMessage>(futureQueue);
+		Thread futureConsumerThread = new Thread(futureConsumer);
+		
+		FuturePriceSubscriber futureSubscriber = new FuturePriceSubscriber(futureQueue);
+		Thread futureSubscriberThread = new Thread(futureSubscriber);
+		
+		RawPriceSubscriber rawSubscriber = new RawPriceSubscriber(rawQueue);
+		Thread rawSubscriberThread = new Thread(rawSubscriber);
+		
+		rawConsumerThread.start();
+		futureConsumerThread.start();
+		
+		rawSubscriberThread.start();
+		futureSubscriberThread.start();
 	}
 
 }

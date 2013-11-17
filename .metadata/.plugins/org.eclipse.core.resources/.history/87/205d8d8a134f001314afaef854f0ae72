@@ -1,0 +1,38 @@
+package Price;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+public class FuturePriceUpdatedMessage implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
+	private long orderId;
+	
+	private BigDecimal price;
+	private long quote;
+	private String calculatedAt;
+	
+	public FuturePriceUpdatedMessage(long orderId, BigDecimal price, long quote)
+	{ 
+		this.orderId = orderId;
+		this.price = price;
+		this.quote = quote;
+	}
+	
+	public long getOrderId()
+	{
+		return orderId;
+	}
+	
+	public BigDecimal getPrice()
+	{
+		return price;
+	}
+	
+	public long getQuote()
+	{
+		return quote;
+	}
+
+}

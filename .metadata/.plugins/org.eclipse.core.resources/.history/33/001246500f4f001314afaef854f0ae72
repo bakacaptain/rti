@@ -1,0 +1,5 @@
+package publishers.future;
+
+public class FuturePricePublisher {
+
+}

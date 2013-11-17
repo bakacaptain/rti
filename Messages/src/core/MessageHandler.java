@@ -3,8 +3,6 @@ package core;
 import java.io.IOException;
 import java.util.concurrent.BlockingQueue;
 
-import Price.PriceUpdatedMessage;
-
 import com.rti.dds.infrastructure.RETCODE_ERROR;
 import com.rti.dds.infrastructure.RETCODE_NO_DATA;
 import com.rti.dds.subscription.DataReader;
@@ -13,11 +11,11 @@ import com.rti.dds.subscription.SampleInfo;
 import com.rti.dds.type.builtin.KeyedBytes;
 import com.rti.dds.type.builtin.KeyedBytesDataReader;
 
-public class MessageHandler extends DataReaderAdapter {
+public class MessageHandler<T> extends DataReaderAdapter {
 
-	private BlockingQueue<PriceUpdatedMessage> queue;
+	private BlockingQueue<T> queue;
 	
-	public MessageHandler(BlockingQueue<PriceUpdatedMessage> queue){
+	public MessageHandler(BlockingQueue<T> queue){
 		this.queue = queue;
 	}
 	
@@ -31,9 +29,9 @@ public class MessageHandler extends DataReaderAdapter {
 				KeyedBytes sample = new KeyedBytes();
 				datareader.take_next_sample(sample,info);
 				if(info.valid_data){
-					PriceUpdatedMessage msg = (PriceUpdatedMessage) ByteSerialzier.deserialize(sample.value);
+					@SuppressWarnings("unchecked")
+					T msg = (T) ByteSerialzier.deserialize(sample.value);
 					this.queue.put(msg);
-					System.out.println("Id:"+msg.getOrderId()+"\nPrice:"+msg.getPrice()+"\nQuote:"+msg.getQuote());
 				}
 			}
 			catch (InterruptedException e) {

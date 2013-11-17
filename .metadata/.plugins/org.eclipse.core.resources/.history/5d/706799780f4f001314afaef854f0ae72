@@ -1,0 +1,10 @@
+package publishers.future;
+
+public class FuturePricePublisher implements Runnable {
+
+	@Override
+	public void run() {
+		
+	}
+
+}

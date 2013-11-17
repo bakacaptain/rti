@@ -1,0 +1,28 @@
+import java.util.concurrent.LinkedBlockingQueue;
+
+import publishers.future.FuturePricePublisher;
+
+import Price.PriceUpdatedMessage;
+
+import subscribers.raw.RawPriceSubscriber;
+
+
+public class PriceForecaster {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		LinkedBlockingQueue<PriceUpdatedMessage> queue = new LinkedBlockingQueue<PriceUpdatedMessage>();
+		
+		FuturePricePublisher publisher = new FuturePricePublisher(queue);
+		
+		RawPriceSubscriber subscriber = new RawPriceSubscriber(queue);
+		Thread subscriberThread = new Thread(subscriber);
+		
+		subscriberThread.start();
+
+	}
+
+}

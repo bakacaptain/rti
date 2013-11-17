@@ -32,4 +32,8 @@ public class PriceUpdatedMessage implements Serializable {
 	{
 		return quote;
 	}
+	
+	public String toString(){
+		return "Raw:\n\tid:"+orderId+"\n\tprice:"+price+"\n\tquote:"+quote;
+	}
 }

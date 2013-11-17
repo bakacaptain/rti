@@ -15,8 +15,6 @@ import com.rti.dds.topic.Topic;
 import com.rti.dds.type.builtin.KeyedBytes;
 import com.rti.dds.type.builtin.KeyedBytesDataWriter;
 import com.rti.dds.type.builtin.KeyedBytesTypeSupport;
-import com.rti.dds.type.builtin.StringDataWriter;
-import com.rti.dds.type.builtin.StringTypeSupport;
 
 import core.ByteSerialzier;
 

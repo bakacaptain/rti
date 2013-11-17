@@ -1,0 +1,20 @@
+package publishers.future;
+
+import java.util.concurrent.BlockingQueue;
+
+import Price.FuturePriceUpdated;
+
+public class FuturePricePublisher implements Runnable {
+
+	private BlockingQueue<FuturePriceUpdated> queue;
+	
+	public FuturePricePublisher(BlockingQueue<FuturePriceUpdated> queue){
+		this.queue = queue;
+	}
+	
+	@Override
+	public void run() {
+		
+	}
+
+}

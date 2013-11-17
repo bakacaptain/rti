@@ -1,0 +1,18 @@
+package subscribers;
+
+import java.util.concurrent.BlockingQueue;
+
+import Price.FuturePriceUpdatedMessage;
+
+public class FuturePriceSubscriber implements Runnable {
+
+	public FuturePriceSubscriber(BlockingQueue<FuturePriceUpdatedMessage> queue){
+		
+	}
+	
+	@Override
+	public void run() {
+		
+	}
+
+}

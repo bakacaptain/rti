@@ -1,0 +1,10 @@
+package subscribers;
+
+public class FuturePriceSubscriber implements Runnable {
+
+	@Override
+	public void run() {
+		
+	}
+
+}

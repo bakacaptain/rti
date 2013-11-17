@@ -1,0 +1,29 @@
+package consumers;
+
+import java.util.concurrent.BlockingQueue;
+
+public class ConsoleConsumer<T> implements Runnable {
+
+	private boolean shutdown_flag = false;
+	private BlockingQueue<T> queue;
+	
+	public ConsoleConsumer(BlockingQueue<T> queue){
+		this.queue = queue;
+	}
+	
+	@Override
+	public void run() {
+		try {
+			while(!shutdown_flag){
+				T temp = this.queue.take();
+			}
+		} catch (Exception ex) {
+			
+		}
+		
+	}
+
+	public void stop(){
+		shutdown_flag = true;
+	}
+}

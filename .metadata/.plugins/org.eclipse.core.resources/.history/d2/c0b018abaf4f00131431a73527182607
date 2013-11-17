@@ -1,0 +1,25 @@
+import java.util.concurrent.LinkedBlockingQueue;
+
+import subscribers.FuturePriceSubscriber;
+import subscribers.RawPriceSubscriber;
+
+import Price.FuturePriceUpdatedMessage;
+import Price.PriceUpdatedMessage;
+
+
+public class PriceViewer {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		LinkedBlockingQueue<PriceUpdatedMessage> rawQueue = new LinkedBlockingQueue<PriceUpdatedMessage>();
+		LinkedBlockingQueue<FuturePriceUpdatedMessage> futureQueue = new LinkedBlockingQueue<FuturePriceUpdatedMessage>();
+		
+		FuturePriceSubscriber futureSubscriber = new FuturePriceSubscriber(futureQueue);
+		RawPriceSubscriber rawSubscriber = new RawPriceSubscriber(rawQueue);
+		
+	}
+
+}

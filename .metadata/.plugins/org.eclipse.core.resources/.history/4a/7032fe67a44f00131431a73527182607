@@ -1,0 +1,46 @@
+package publishers.future;
+
+import java.util.Date;
+import java.util.concurrent.BlockingQueue;
+
+import Price.FuturePriceUpdatedMessage;
+import Price.PriceUpdatedMessage;
+
+public class FuturePricePublisher implements Runnable {
+
+	private boolean shutdown_flag = false;
+	private BlockingQueue<PriceUpdatedMessage> queue;
+	
+	public FuturePricePublisher(BlockingQueue<PriceUpdatedMessage> queue){
+		this.queue = queue;
+		init();
+	}
+	
+	private void init(){
+		
+	}
+	
+	@Override
+	public void run() {
+		try{
+			while(!shutdown_flag){
+				PriceUpdatedMessage msg = queue.take();
+				
+				FuturePriceUpdatedMessage f_msg = convert(msg);
+				
+				//TODO publish
+			}
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	public void stop(){
+		shutdown_flag = true;
+	}
+	
+	private FuturePriceUpdatedMessage convert(PriceUpdatedMessage msg){
+		return new FuturePriceUpdatedMessage(msg.getOrderId(), msg.getPrice(), msg.getQuote(), (new Date()).getTime());
+	}
+
+}

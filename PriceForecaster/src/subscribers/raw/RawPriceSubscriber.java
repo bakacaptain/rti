@@ -26,8 +26,6 @@ public class RawPriceSubscriber implements Runnable {
 		this.init();
 	}
 	
-	
-	
 	private void init(){
 		participant = DomainParticipantFactory
 				.get_instance()
@@ -52,7 +50,7 @@ public class RawPriceSubscriber implements Runnable {
 		KeyedBytesDataReader reader = (KeyedBytesDataReader) participant.create_datareader(
 				topic, 
 				Subscriber.DATAREADER_QOS_DEFAULT, 
-				new MessageHandler(queue), // listener 
+				new MessageHandler<PriceUpdatedMessage>(queue), // listener 
 				StatusKind.DATA_AVAILABLE_STATUS);
 			
 		if(reader == null)
@@ -62,6 +60,8 @@ public class RawPriceSubscriber implements Runnable {
 		}
 	}
 	
+	// it has it own thread to be able to shut it down 
+	// and to have its own thread to publish from
 	public void run(){
 		
 		System.out.println("Data reader started...");

@@ -1,0 +1,77 @@
+package subscribers;
+
+import java.util.concurrent.BlockingQueue;
+
+import com.rti.dds.domain.DomainParticipant;
+import com.rti.dds.domain.DomainParticipantFactory;
+import com.rti.dds.infrastructure.StatusKind;
+import com.rti.dds.subscription.Subscriber;
+import com.rti.dds.topic.Topic;
+import com.rti.dds.type.builtin.KeyedBytesDataReader;
+import com.rti.dds.type.builtin.KeyedBytesTypeSupport;
+
+import core.MessageHandler;
+
+import Price.FuturePriceUpdatedMessage;
+
+public class FuturePriceSubscriber implements Runnable {
+
+	private boolean shutdown_flag = false;
+	private BlockingQueue<FuturePriceUpdatedMessage> queue;
+	private DomainParticipant participant;
+	
+	public FuturePriceSubscriber(BlockingQueue<FuturePriceUpdatedMessage> queue){
+		this.queue = queue;
+		this.init();
+	}
+	
+	private void init(){
+		participant = DomainParticipantFactory
+				.get_instance()
+				.create_participant(
+						1, // Domain id
+						DomainParticipantFactory.PARTICIPANT_QOS_DEFAULT,
+						null, // listener
+						StatusKind.STATUS_MASK_NONE);
+		if(participant == null)
+		{
+			System.err.println("Unable to create the domain participant");
+			return;
+		}
+		
+		Topic topic = participant.create_topic(
+				"RawPriceUpdated",
+				KeyedBytesTypeSupport.get_type_name(),
+				DomainParticipant.TOPIC_QOS_DEFAULT,
+				null, // listener
+				StatusKind.STATUS_MASK_NONE);
+			
+		KeyedBytesDataReader reader = (KeyedBytesDataReader) participant.create_datareader(
+				topic, 
+				Subscriber.DATAREADER_QOS_DEFAULT, 
+				new MessageHandler<FuturePriceUpdatedMessage>(queue), // listener 
+				StatusKind.DATA_AVAILABLE_STATUS);
+			
+		if(reader == null)
+		{
+			System.err.println("Unable to create DDS data reader");
+			return;
+		}
+	}
+	
+	@Override
+	public void run() {
+		try {
+			while(!shutdown_flag){
+				
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+	public void stop(){
+		shutdown_flag = true;
+	}
+
+}

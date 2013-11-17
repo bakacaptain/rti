@@ -1,0 +1,16 @@
+package publishers.future;
+
+public class FuturePricePublisher implements Runnable {
+
+	private BlockingQueue<FuturePriceUpdatedMessage> queue;
+	
+	public FuturePricePublisher(BlockingQueue<> queue){
+		this.queue = queue;
+	}
+	
+	@Override
+	public void run() {
+		
+	}
+
+}

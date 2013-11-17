@@ -1,0 +1,11 @@
+package Price;
+
+import java.io.Serializable;
+
+public class FuturePriceUpdated implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
+	
+
+}
